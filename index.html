@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Governance & Digital Services</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        
+        .section {
+            padding: 60px 30px;
+            min-height: 80vh;
+            display: none;
+        }
+        
+        .active {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+        
+        body {
+            background: #F8F9FA;
+            color: #212529;
+            scroll-behavior: smooth;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: bold;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            cursor: pointer;
+        }
+        /* ===== HEADER ===== */
+        
+        header {
+            background: #0D1B2A;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        header h1 {
+            font-size: 1.7rem;
+        }
+        
+        nav a {
+            margin: 0 12px;
+            transition: 0.3s;
+            color: white;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            color: #FFC107;
+        }
+        /* ===== SECTIONS ===== */
+        
+        .section {
+            padding: 60px 30px;
+            min-height: 80vh;
+            display: none;
+        }
+        
+        .active {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* ===== BUTTONS ===== */
+        
+        .button {
+            padding: 12px 25px;
+            background: #FFC107;
+            color: #0D1B2A;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .button:hover {
+            background: #FFB300;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        /* ===== HERO ===== */
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(120deg, #0D1B2A, #20C997);
+            border-radius: 15px;
+            color: white;
+            position: relative;
+        }
+        
+        .hero input {
+            width: 60%;
+            max-width: 400px;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        
+        .hero input:focus {
+            outline: none;
+            transform: scale(1.02);
+        }
+        
+        .hero .button {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        /* ===== GRIDS & CARDS ===== */
+        
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            flex: 1 1 calc(25% - 20px);
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            cursor: pointer;
+            color: #0D1B2A;
+            font-weight: bold;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #0D1B2A, #20C997);
+            color: white;
+        }
+        
+        @media(max-width:900px) {
+            .card {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+        
+        @media(max-width:600px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+        /* ===== TICKER ===== */
+        
+        .ticker {
+            background: #0D1B2A;
+            color: #FFC107;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+        
+        .ticker span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 15s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        /* ===== STEPS ===== */
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .step {
+            flex: 1 1 calc(20% - 20px);
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #0D1B2A, #20C997);
+            color: white;
+        }
+        
+        @media(max-width:1200px) {
+            .step {
+                flex: 1 1 calc(33% - 20px);
+            }
+        }
+        
+        @media(max-width:900px) {
+            .step {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+        
+        @media(max-width:600px) {
+            .step {
+                flex: 1 1 100%;
+            }
+        }
+        /* ===== STATISTICS ===== */
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .stat {
+            background: #20C997;
+            color: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1 1 calc(25% - 20px);
+            margin: 10px;
+            font-weight: bold;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        /* ===== CAROUSEL ===== */
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            min-width: 300px;
+            margin: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+        
+        .carousel-buttons button {
+            pointer-events: all;
+            background: #FFC107;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            color: #0D1B2A;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* ===== MODAL ===== */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #0D1B2A;
+        }
+        /* ===== FORM ELEMENTS ===== */
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        /* ===== FOOTER ===== */
+        
+        footer {
+            background: #0D1B2A;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 4px solid #FFC107;
+            font-weight: bold;
+        }
+        
+        footer span {
+            display: block;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>E-Governance & Digital Services</h1>
+        <nav>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('services')">Services</a>
+            <a href="#" onclick="showSection('forms')">Forms</a>
+            <a href="#" onclick="showSection('payments')">Payments</a>
+            <a href="#" onclick="showSection('tracker')">Requests</a>
+            <a href="#" onclick="showSection('programs')">Programs</a>
+            <a href="#" onclick="showSection('tutorials')">Tutorials</a>
+            <a href="#" onclick="showSection('events')">Events</a>
+            <a href="#" onclick="showSection('insights')">Insights</a>
+            <a href="#" onclick="showSection('policies')">Policies</a>
+        </nav>
+    </header>
+
+    <!-- PAGE 1 – HOME -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <h1>Access All Government Services Digitally</h1>
+            <p>Fast, Secure, Reliable – Anywhere, Anytime</p>
+            <input type="text" placeholder="Search Services...">
+            <br>
+            <button class="button">Get Started</button>
+        </div>
+
+        <h2 style="margin-top:50px;">Our Services</h2>
+        <div class="grid">
+            <div class="card" onclick="openModal('Certificates')">Certificates</div>
+            <div class="card" onclick="openModal('Payments')">Payments</div>
+            <div class="card" onclick="openModal('Requests')">Requests</div>
+            <div class="card" onclick="openModal('Complaints')">Complaints</div>
+            <div class="card" onclick="openModal('Notices')">Notices</div>
+            <div class="card" onclick="openModal('Licenses')">Licenses</div>
+            <div class="card" onclick="openModal('Reports')">Reports</div>
+            <div class="card" onclick="openModal('Identity')">Identity</div>
+        </div>
+
+        <h2 style="margin-top:50px;">Announcements</h2>
+        <div class="ticker"><span>Government Digital Festival | New e-Payment Gateway Launched | Free Digital ID for Citizens | Policy Update 2025</span></div>
+
+        <h2 style="margin-top:50px;">How It Works</h2>
+        <div class="steps">
+            <div class="step">Register</div>
+            <div class="step">Submit Request</div>
+            <div class="step">Track Progress</div>
+            <div class="step">Receive Service</div>
+            <div class="step">Feedback</div>
+        </div>
+
+        <h2 style="margin-top:50px;">Statistics</h2>
+        <div class="stats">
+            <div class="stat">
+                <h2 class="counter" data-target="120000">0</h2> Citizens Served</div>
+            <div class="stat">
+                <h2 class="counter" data-target="500">0</h2> Services Online</div>
+            <div class="stat">
+                <h2 class="counter" data-target="98">0</h2>% Satisfaction</div>
+            <div class="stat">
+                <h2 class="counter" data-target="1000000">0</h2> Transactions</div>
+        </div>
+
+        <h2 style="margin-top:50px;">Testimonials</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item">"This portal made government services so easy and accessible!" – Citizen A</div>
+                <div class="carousel-item">"Fast, secure, and reliable digital platform for all services." – Citizen B</div>
+                <div class="carousel-item">"The digital service guides are very helpful!" – Citizen C</div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
+        </div>
+
+        <h2 style="margin-top:50px;">Contact Preview</h2>
+        <form>
+            <label>Name</label>
+            <input type="text" placeholder="Your Name">
+            <label>Email</label>
+            <input type="email" placeholder="Your Email">
+            <label>Message</label>
+            <textarea placeholder="Your Message"></textarea>
+            <button class="button" type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p>Here is detailed information about this service. You can perform actions, submit forms, or download files related to this service.</p>
+            <button class="button">Proceed</button>
+        </div>
+    </div>
+
+    <!-- PAGE 2 – SERVICES -->
+
+    <section id="services" class="section">
+        <h2>Citizen Services Explorer</h2>
+        <input type="text" placeholder="Search Services..." class="button">
+        <div class="grid">
+            <div class="card">Request Certificate</div>
+            <div class="card">Pay Bill</div>
+            <div class="card">Apply License</div>
+            <div class="card">Submit Complaint</div>
+            <div class="card">Download Form</div>
+            <div class="card">Track ID</div>
+            <div class="card">Request Report</div>
+            <div class="card">Other Services</div>
+        </div>
+    </section>
+    <!-- PAGE 3 – FORMS -->
+    <section id="forms" class="section">
+        <h2>Digital Forms Hub</h2>
+        <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter full name">
+            <label>Email</label>
+            <input type="email" placeholder="Enter email">
+            <label>Upload Documents</label>
+            <input type="file" onchange="previewFile(this)">
+            <div id="preview-container"></div>
+            <button class="button" type="submit">Submit Form</button>
+        </form>
+        <div class="grid" style="margin-top:40px;">
+            <div class="card">Download Form Templates</div>
+            <div class="card">Previous Submissions</div>
+            <div class="card">Tips for Filling Forms</div>
+            <div class="card">FAQ</div>
+        </div>
+    </section>
+
+    <!-- PAGE 4 – PAYMENTS -->
+    <section id="payments" class="section">
+
+
+
+        <h2>E-Payment Gateway</h2>
+        <div class="grid">
+            <div class="card">Pay Utility Bills</div>
+            <div class="card">Pay Taxes</div>
+            <div class="card">Renew Licenses</div>
+            <div class="card">Donations & CSR</div>
+        </div>
+        <div class="grid" style="margin-top:30px;">
+            <div class="card">Recent Payments History</div>
+            <div class="card">Payment Offers</div>
+            <div class="card">FAQs on Payments</div>
+            <div class="card">Download Receipts</div>
+        </div>
+
+        <h2>E-Payments Portal</h2>
+        <form>
+            <label>Select Payment Type</label>
+            <select>
+<option>Certificate Fee</option>
+<option>License Fee</option>
+<option>Utility Bill</option>
+</select>
+            <label>Amount</label>
+            <input type="number" placeholder="Enter Amount">
+            <button class="button">Pay Now</button>
+        </form>
+    </section>
+
+    <!-- PAGE 5 – REQUEST TRACKER -->
+    <section id="tracker" class="section">
+        <h2>Request Tracker & Workflow</h2>
+        <div class="grid">
+            <div class="card">Certificate Request – In Progress
+                <div style="background:#ccc;border-radius:8px;height:12px;margin-top:8px;">
+                    <div style="width:50%;background:#20C997;height:12px;border-radius:8px;"></div>
+                </div>
+            </div>
+            <div class="card">License Application – Completed
+                <div style="background:#ccc;border-radius:8px;height:12px;margin-top:8px;">
+                    <div style="width:100%;background:#20C997;height:12px;border-radius:8px;"></div>
+                </div>
+            </div>
+            <div class="card">Complaint Submission – Pending
+                <div style="background:#ccc;border-radius:8px;height:12px;margin-top:8px;">
+                    <div style="width:20%;background:#20C997;height:12px;border-radius:8px;"></div>
+                </div>
+            </div>
+            <div class="card">Report Request – In Review
+                <div style="background:#ccc;border-radius:8px;height:12px;margin-top:8px;">
+                    <div style="width:60%;background:#20C997;height:12px;border-radius:8px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 6 – PROGRAMS -->
+    <section id="programs" class="section">
+        <h2>Government Programs & Initiatives</h2>
+        <div class="grid">
+            <div class="card">Education Scheme</div>
+            <div class="card">Health Initiative</div>
+            <div class="card">Infrastructure Project</div>
+            <div class="card">Social Welfare Program</div>
+            <div class="card">Digital Literacy</div>
+            <div class="card">Startup Support</div>
+            <div class="card">Employment Drive</div>
+            <div class="card">Environmental Program</div>
+        </div>
+        <div class="grid" style="margin-top:30px;">
+            <div class="card">Program Success Stories</div>
+            <div class="card">Downloadable Resources</div>
+            <div class="card">Program Statistics</div>
+        </div>
+    </section>
+
+    <!-- PAGE 7 – TUTORIALS -->
+    <section id="tutorials" class="section">
+        <h2>Digital Service Tutorials & Step Guides</h2>
+        <div class="grid">
+            <div class="card">Apply Certificate</div>
+            <div class="card">Track Request</div>
+            <div class="card">Pay Online</div>
+            <div class="card">Digital ID Usage</div>
+            <div class="card">File Upload Guide</div>
+            <div class="card">Complaint Submission Guide</div>
+            <div class="card">License Renewal</div>
+            <div class="card">Service Feedback</div>
+        </div>
+    </section>
+
+    <!-- PAGE 8 – EVENTS -->
+    <section id="events" class="section">
+        <h2>Events & Announcements</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item">Webinar: Digital Literacy – <strong>Starts in 5 days</strong></div>
+                <div class="carousel-item">Policy Update Session – <strong>Next Week</strong></div>
+                <div class="carousel-item">Citizen Engagement Program – <strong>Ongoing</strong></div>
+                <div class="carousel-item">Government Hackathon – <strong>Registration Open</strong></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev2">&#10094;</button>
+                <button id="next2">&#10095;</button>
+            </div>
+        </div>
+        <div class="grid" style="margin-top:30px;">
+            <div class="card">Event Calendar</div>
+            <div class="card">Past Events Archive</div>
+            <div class="card">Submit Event Feedback</div>
+            <div class="card">Join Upcoming Webinar</div>
+        </div>
+    </section>
+
+    <!-- PAGE 9 – DIGITAL INSIGHTS -->
+    <section id="insights" class="section">
+        <h2>Digital Insights & Citizen Engagement</h2>
+        <div class="stats">
+            <div class="stat">
+                <h2 class="counter" data-target="150000">0</h2> Active Users</div>
+            <div class="stat">
+                <h2 class="counter" data-target="850">0</h2> Services Online</div>
+            <div class="stat">
+                <h2 class="counter" data-target="99">0</h2>% Satisfaction</div>
+            <div class="stat">
+                <h2 class="counter" data-target="700000">0</h2> Transactions</div>
+        </div>
+        <div class="grid" style="margin-top:40px;">
+            <div class="card">Service Heatmap</div>
+            <div class="card">Top Programs</div>
+            <div class="card">Feedback Trends</div>
+            <div class="card">Monthly Highlights</div>
+            <div class="card">Download Reports</div>
+            <div class="card">Region Engagement</div>
+            <div class="card">Citizen Stories</div>
+            <div class="card">Program Participation Stats</div>
+        </div>
+    </section>
+
+    <!-- PAGE 10 – POLICIES & ABOUT -->
+    <section id="policies" class="section">
+        <h2>Policies, Achievements & About Portal</h2>
+        <div class="grid">
+            <div class="card">Privacy Policy</div>
+            <div class="card">Terms of Service</div>
+            <div class="card">Accessibility Statement</div>
+            <div class="card">Portal Achievements</div>
+            <div class="card">Awards & Recognition</div>
+            <div class="card">Team Information</div>
+            <div class="card">Citizen Testimonials</div>
+            <div class="card">Future Roadmap</div>
+            <div class="card">Press & Media Mentions</div>
+            <div class="card">Download Policy PDFs</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 E-Governance & Digital Services
+        <span>Designed by Neelayathatchi</span>
+    </footer>
+
+    <!-- ====== SCRIPTS ====== -->
+    <script>
+        // Show section
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Modal
+        function openModal(title) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            counter.innerText = '0';
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const c = +counter.innerText;
+                const increment = target / 200;
+                if (c < target) {
+                    counter.innerText = `${Math.ceil(c+increment)}`;
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+
+        // Carousels
+        function initCarousel(trackId, prevId, nextId) {
+            const track = document.querySelector(trackId);
+            const items = track.querySelectorAll('.carousel-item');
+            let index = 0;
+            document.querySelector(prevId).addEventListener('click', () => {
+                index = (index - 1 + items.length) % items.length;
+                track.style.transform = `translateX(-${index*330}px)`;
+            });
+            document.querySelector(nextId).addEventListener('click', () => {
+                index = (index + 1) % items.length;
+                track.style.transform = `translateX(-${index*330}px)`;
+            });
+        }
+        initCarousel('.carousel-track', '#prev', '#next');
+        initCarousel('.carousel-track', '#prev2', '#next2');
+
+        // File preview
+        function previewFile(input) {
+            const container = document.getElementById('preview-container');
+            container.innerHTML = '';
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const p = document.createElement('p');
+                    p.innerText = 'Preview: ' + input.files[0].name;
+                    container.appendChild(p);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>
